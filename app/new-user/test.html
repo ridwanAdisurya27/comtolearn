@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+
+<html lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="web_standard" name="shell-type" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Lemon:wght@100..900&display=swap"
+        rel="stylesheet" />
+    <style>
+        @layer base {
+
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                overscroll-behavior: none;
+            }
+
+            main>:first-child {
+                margin-top: 0 !important;
+            }
+
+            main>:last-child {
+                margin-bottom: 0 !important;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+        id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-secondary-container": "#5b6478", "primary-fixed": "#dce1ff", "on-primary-fixed": "#001550", "primary-container": "#2355e0", "on-error": "#ffffff", "surface-container-low": "#f2f4f6", "on-primary-fixed-variant": "#003ab3", "primary": "#003dbb", "on-primary-container": "#d7ddff", "secondary-fixed-dim": "#bdc6dd", "surface-container-highest": "#e1e2e4", "surface-container-high": "#e7e8ea", "on-error-container": "#93000a", "inverse-surface": "#2e3132", "surface-variant": "#e1e2e4", "surface-tint": "#1c51dc", "surface-bright": "#f8f9fb", "on-primary": "#ffffff", "on-surface-variant": "#434655", "outline-variant": "#c4c5d7", "secondary-fixed": "#d9e2fa", "on-secondary": "#ffffff", "on-background": "#191c1e", "error-container": "#ffdad6", "error": "#ba1a1a", "tertiary-fixed-dim": "#bfc6dc", "secondary-container": "#d9e2fa", "surface-container-lowest": "#ffffff", "surface-dim": "#d9dadc", "inverse-on-surface": "#f0f1f3", "outline": "#747686", "surface-container": "#edeef0", "background": "#f8f9fb", "on-secondary-fixed-variant": "#3e475a", "on-tertiary-fixed": "#141b2c", "tertiary-container": "#5a6275", "primary-fixed-dim": "#b6c4ff", "on-surface": "#191c1e", "on-tertiary-fixed-variant": "#3f4759", "on-tertiary-container": "#d7def5", "tertiary-fixed": "#dbe2f9", "on-tertiary": "#ffffff", "secondary": "#555e72", "tertiary": "#424a5c", "inverse-primary": "#b6c4ff", "on-secondary-fixed": "#121c2c", "surface": "#f8f9fb" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter": "1.5rem", "gutter-desktop": "2rem", "margin": "1.5rem", "space-sm": "0.5rem", "space-xl": "2rem", "margin-desktop": "3rem", "space-md": "1rem", "space-xs": "0.25rem", "space-lg": "1.5rem" }, "fontFamily": { "body-default": ["Geist"], "body-medium": ["Geist"], "headline-section": ["Lemon"], "chat-msg": ["Geist"], "label-btn": ["Geist"], "caption": ["Geist"], "display-hero": ["Lemon"], "headline-section-mobile": ["Lemon"], "chat-meta": ["Geist"], "title-card": ["Lemon"], "display-hero-mobile": ["Lemon"], "body-sm": ["Geist"], "caption-medium": ["Geist"] }, "fontSize": { "body-default": ["17px", { "lineHeight": "1.6", "fontWeight": "400" }], "body-medium": ["17px", { "lineHeight": "1.6", "fontWeight": "500" }], "headline-section": ["36px", { "lineHeight": "1.15", "letterSpacing": "-0.015em", "fontWeight": "600" }], "chat-msg": ["14.5px", { "lineHeight": "1.45", "fontWeight": "400" }], "label-btn": ["16px", { "lineHeight": "1.2", "fontWeight": "500" }], "caption": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }], "display-hero": ["56px", { "lineHeight": "1.05", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-section-mobile": ["28px", { "lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600" }], "chat-meta": ["11px", { "lineHeight": "1.0", "fontWeight": "400" }], "title-card": ["21px", { "lineHeight": "1.3", "fontWeight": "600" }], "display-hero-mobile": ["36px", { "lineHeight": "1.1", "letterSpacing": "-0.01em", "fontWeight": "700" }], "body-sm": ["15px", { "lineHeight": "1.5", "fontWeight": "400" }], "caption-medium": ["14px", { "lineHeight": "1.5", "fontWeight": "500" }] } } } }</script>
+</head>
+
+<body class="bg-surface font-body-default text-body-default text-on-surface antialiased min-h-screen flex flex-col">
+    <header class="fixed top-0 left-0 right-0 w-full z-50 bg-surface-container-lowest border-b border-[#DDE2EC]">
+        <div
+            class="h-16 max-w-[1200px] mx-auto px-margin md:px-margin-desktop flex items-center justify-between gap-gutter">
+            <div class="flex items-center gap-space-md"><a class="flex items-center gap-space-xs text-decoration-none"
+                    data-path="eksplorasi-komunitas" href="#"><span
+                        class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-on-primary font-title-card text-title-card leading-none">C</span><span
+                        class="font-title-card text-title-card text-on-surface tracking-tight">ComtoLearn</span></a>
+                <div class="hidden lg:block h-5 w-[1px] bg-[#DDE2EC]"></div>
+                <nav class="hidden lg:flex items-center gap-space-lg"
+                    data-active-classes="text-primary font-body-medium"><a
+                        class="font-body-default text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+                        data-path="eksplorasi-komunitas" href="#">Komunitas UKM</a><a
+                        class="font-body-default text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+                        data-path="alur-belajar-mandiri" href="#">Alur Belajar</a><a
+                        class="font-body-default text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"
+                        data-path="forum-diskusi-kampus" href="#">Diskusi Kampus</a></nav>
+            </div>
+            <div class="flex-1 max-w-md mx-space-md hidden sm:flex flex-col items-center">
+                <div class="w-full flex items-center justify-between mb-1.5"><span
+                        class="font-caption-medium text-caption text-on-surface">Langkah 2 dari 3: Lengkapi Profil
+                        Belajar</span><span class="font-caption text-caption text-secondary">66%</span></div>
+                <div class="w-full h-1.5 bg-[#DDE2EC] rounded-full overflow-hidden">
+                    <div class="h-full bg-primary-container rounded-full w-2/3"></div>
+                </div>
+            </div>
+            <div class="flex items-center gap-space-md"><button
+                    class="hidden md:inline-flex items-center justify-center font-caption-medium text-caption text-secondary hover:text-on-surface transition-colors px-space-sm py-space-xs"
+                    type="button">Simpan Draf</button>
+                <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span
+                        class="material-symbols-outlined text-on-primary text-[18px]">person</span></div>
+            </div>
+        </div>
+    </header>
+    <main class="w-full pt-16 bg-surface flex-1">
+        <div class="flex flex-col w-full">
+            <div class="w-full max-w-[1200px] mx-auto px-margin md:px-margin-desktop py-space-xl md:py-16">
+                <!-- Stepper Context Header (Desktop Subtle Bar) -->
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm mb-space-lg">
+                    <div class="flex items-center gap-space-sm">
+                        <span
+                            class="inline-flex items-center justify-center px-2.5 py-0.5 rounded-full bg-secondary-container text-primary-container font-caption-medium text-caption">
+                            Tahap 02 / 03
+                        </span>
+                        <span class="text-secondary font-caption text-caption hidden sm:inline">•</span>
+                        <span class="text-secondary font-caption text-caption hidden sm:inline">Konfigurasi Pengalaman
+                            Mahasiswa</span>
+                    </div>
+                    <div class="flex items-center gap-space-xs text-secondary font-caption text-caption">
+                        <span class="material-symbols-outlined text-[16px]">lock</span>
+                        <span>Data tersimpan otomatis ke akun kampus Anda</span>
+                    </div>
+                </div>
+                <!-- Main Card Container: Focal Element Shadow as mandated -->
+                <div
+                    class="bg-surface-container-lowest rounded-2xl shadow-[0_24px_48px_-24px_rgba(16,24,40,0.25)] overflow-hidden">
+                    <!-- Stepper Linear Progress Strip on Top of Card -->
+                    <div class="w-full bg-surface-container h-1.5 flex">
+                        <div class="h-full bg-primary-container w-2/3 transition-all duration-300"></div>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[640px]">
+                        <!-- Kolom Kiri: Konteks & Live Profile Preview (Academic Utility Aesthetic) -->
+                        <div class="lg:col-span-5 bg-surface p-6 md:p-10 flex flex-col justify-between gap-space-xl">
+                            <div>
+                                <div
+                                    class="flex items-center gap-space-xs text-primary font-caption-medium text-caption mb-space-sm">
+                                    <span class="w-2 h-2 rounded-full bg-primary-container"></span>
+                                    <span>Langkah 2 dari 3</span>
+                                </div>
+                                <h1
+                                    class="font-headline-section text-headline-section text-on-surface mb-space-md tracking-tight">
+                                    Lengkapi Profil Belajarmu
+                                </h1>
+                                <p class="font-body-default text-body-default text-secondary mb-space-lg">
+                                    Identitas dan minat yang kamu tentukan membantu kami memetakan silabus mandiri,
+                                    menduetkan teman diskusi sepadan, dan memunculkan rekomendasi UKM kampus yang tepat.
+                                </p>
+                                <!-- Live Campus Profile Card Preview (Dynamic Interactive Mirror) -->
+                                <div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+                                    <div class="flex items-center justify-between pb-space-sm mb-space-md">
+                                        <span
+                                            class="text-[11px] font-caption-medium uppercase tracking-wider text-secondary flex items-center gap-1">
+                                            <span
+                                                class="material-symbols-outlined text-[14px] text-primary-container">visibility</span>
+                                            Pratinjau Kartu Mahasiswa
+                                        </span>
+                                        <span
+                                            class="text-[11px] font-caption text-primary-container font-medium bg-secondary-container px-2 py-0.5 rounded-full">
+                                            Aktif
+                                        </span>
+                                    </div>
+                                    <!-- Profile Card Header -->
+                                    <div class="flex items-start gap-space-md mb-space-md">
+                                        <div class="relative">
+                                            <div class="w-14 h-14 rounded-full bg-secondary-container flex items-center justify-center overflow-hidden"
+                                                id="previewAvatarWrapper">
+                                                <img class="w-full h-full object-cover"
+                                                    data-alt="Close up portrait photograph of an Indonesian university student smiling confidently with modern campus library architecture in the soft blurred background, professional academic lighting, crisp detail"
+                                                    id="previewAvatarImg"
+                                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_04364sZCTuWJlEG9fWX_9tH7eoPKaSDuX1HQhHp-37h_ACSjVkSiVp2mvfQQnmxRvP808GthTGLdliH-I5NCxtPpfX6WA4HvUntBgQvZrBQF0-tI72GArhjE3N5Jd6i-PQKewTW6KkaZKvKLI3nOXCpYjhZOjOC5acFIKE6UkkW76LJUcuJoWBtWpTqGkDPnW7PPUJDQbcQqugcy9atd1IG-pWsgRBumYJUBxVM" />
+                                            </div>
+                                            <div
+                                                class="absolute -bottom-1 -right-1 w-5 h-5 bg-primary-container text-on-primary rounded-full flex items-center justify-center text-[10px]">
+                                                <span class="material-symbols-outlined text-[12px]">verified</span>
+                                            </div>
+                                        </div>
+                                        <div class="flex-1 min-w-0">
+                                            <div class="flex items-center gap-1.5">
+                                                <span
+                                                    class="font-body-medium text-body-default text-on-surface font-semibold truncate"
+                                                    id="previewDisplayName">Alex Pratama</span>
+                                            </div>
+                                            <p class="font-caption text-caption text-secondary truncate"
+                                                id="previewUsername">@alex_pratama</p>
+                                            <p
+                                                class="font-caption text-[12px] text-on-surface-variant flex items-center gap-1 mt-0.5">
+                                                <span
+                                                    class="material-symbols-outlined text-[13px] text-secondary">school</span>
+                                                Fakultas Ilmu Komputer
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <!-- Selected Tags Preview Slot -->
+                                    <div class="mb-space-md">
+                                        <span class="text-[11px] font-caption text-secondary block mb-1.5">Fokus Minat
+                                            Terpilih:</span>
+                                        <div class="flex flex-wrap gap-1.5 min-h-[28px]" id="previewChipsContainer">
+                                            <span
+                                                class="px-2.5 py-0.5 bg-secondary-container text-primary-container rounded-full text-[12px] font-caption-medium">Game
+                                                Development</span>
+                                            <span
+                                                class="px-2.5 py-0.5 bg-secondary-container text-primary-container rounded-full text-[12px] font-caption-medium">Robotika
+                                                & IoT</span>
+                                            <span
+                                                class="px-2.5 py-0.5 bg-secondary-container text-primary-container rounded-full text-[12px] font-caption-medium">UI/UX
+                                                Design</span>
+                                        </div>
+                                    </div>
+                                    <!-- Recommendation Result Match Box -->
+                                    <div
+                                        class="bg-surface-container-low rounded-lg p-space-sm flex items-center justify-between">
+                                        <div class="flex items-center gap-space-xs">
+                                            <span
+                                                class="material-symbols-outlined text-primary-container text-[20px]">groups</span>
+                                            <div>
+                                                <p
+                                                    class="font-caption-medium text-caption text-on-surface leading-tight">
+                                                    32 Komunitas Kampus Cocok</p>
+                                                <p class="font-caption text-[11px] text-secondary">UKM Robotika, GDSC,
+                                                    Desain Interaktif</p>
+                                            </div>
+                                        </div>
+                                        <span
+                                            class="font-title-card text-[18px] text-primary-container font-bold">98%</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Academic Privacy Note -->
+                            <div
+                                class="flex items-start gap-space-xs text-secondary font-caption text-caption pt-space-md">
+                                <span
+                                    class="material-symbols-outlined text-[16px] text-secondary shrink-0 mt-0.5">shield</span>
+                                <span>Profilmu hanya dibagikan dalam ekosistem kampus terverifikasi untuk tujuan
+                                    kolaborasi proyek dan riset.</span>
+                            </div>
+                        </div>
+                        <!-- Kolom Kanan: Interactive Form -->
+                        <div class="lg:col-span-7 p-6 md:p-10 flex flex-col justify-between">
+                            <form class="space-y-space-lg" id="onboardingForm" onsubmit="event.preventDefault();">
+                                <!-- Section 1: Foto Profil / Avatar -->
+                                <div>
+                                    <label class="block font-body-medium text-body-default text-on-surface mb-1">
+                                        Foto Profil
+                                    </label>
+                                    <p class="font-caption text-caption text-secondary mb-space-sm">
+                                        Gunakan foto formal santai agar rekan tim dan mentor UKM mudah mengenalimu.
+                                    </p>
+                                    <div
+                                        class="flex flex-wrap sm:flex-nowrap items-center gap-space-md bg-surface-container-low p-space-md rounded-xl">
+                                        <!-- Avatar Preview -->
+                                        <div class="relative shrink-0">
+                                            <div
+                                                class="w-[72px] h-[72px] rounded-full overflow-hidden bg-secondary-container flex items-center justify-center">
+                                                <img class="w-full h-full object-cover"
+                                                    data-alt="Portrait photography of an Indonesian computer science university student with cheerful focus in academic setting"
+                                                    id="formAvatarImg"
+                                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsFBIeb4NHXrDjhqEs0A_Z2vZMkJbWsazsuptICjTWdSSESW4s0nw908cZtpp_faePul8Rp3_uty9rKj1_ajhya5XwUnwixNNyWeqmCMh-KaFD1WiOU_jn-WSt-m_qFrLX-cyYjuos2qG0yZJyhKHU6V-KRkq4-znpbxnBGFizKUybhoK4l597jjIL_w3Qiec1FGM42b1kyumeKIn0FxpJF6EQ4aweI1LCEb9Sb7I" />
+                                            </div>
+                                        </div>
+                                        <!-- Action Controls -->
+                                        <div class="flex-1 space-y-2">
+                                            <div class="flex flex-wrap items-center gap-space-xs">
+                                                <label
+                                                    class="inline-flex items-center justify-center h-9 px-4 rounded-lg bg-surface-container-lowest text-on-surface font-caption-medium text-caption hover:bg-surface-container cursor-pointer transition-colors shadow-sm">
+                                                    <span
+                                                        class="material-symbols-outlined text-[16px] mr-1.5 text-primary-container">upload</span>
+                                                    Pilih Foto Baru
+                                                    <input accept="image/png, image/jpeg" class="hidden"
+                                                        id="avatarFileInput" type="file" />
+                                                </label>
+                                                <button
+                                                    class="inline-flex items-center justify-center h-9 px-3 rounded-lg text-secondary hover:text-on-surface font-caption text-caption transition-colors"
+                                                    id="btnUseDefaultAvatar" type="button">
+                                                    <span
+                                                        class="material-symbols-outlined text-[16px] mr-1">account_box</span>
+                                                    Gunakan Avatar Kampus
+                                                </button>
+                                            </div>
+                                            <p class="font-caption text-[12px] text-secondary">
+                                                Format .jpg atau .png. Ukuran maksimal 5MB.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Section 2: Username / Nama Panggilan -->
+                                <div>
+                                    <div class="flex items-center justify-between mb-1">
+                                        <label class="block font-body-medium text-body-default text-on-surface"
+                                            for="usernameInput">
+                                            Username Kampus
+                                        </label>
+                                        <span class="font-caption text-[12px] text-secondary">Wajib diisi</span>
+                                    </div>
+                                    <div class="relative flex items-center">
+                                        <div
+                                            class="absolute left-4 pointer-events-none flex items-center justify-center text-secondary font-body-default">
+                                            @
+                                        </div>
+                                        <input autocomplete="off"
+                                            class="w-full h-12 pl-9 pr-10 rounded-lg bg-surface-container-lowest text-on-surface font-body-default focus:bg-surface-container-lowest transition-all"
+                                            id="usernameInput" maxlength="24" placeholder="nama_kamu" type="text"
+                                            value="alex_pratama" />
+                                        <div class="absolute right-3.5 flex items-center pointer-events-none text-primary-container"
+                                            id="usernameStatusIcon">
+                                            <span class="material-symbols-outlined text-[18px]">check_circle</span>
+                                        </div>
+                                    </div>
+                                    <p class="font-caption text-caption text-secondary mt-1.5 flex items-center gap-1">
+                                        <span class="material-symbols-outlined text-[14px]">info</span>
+                                        <span>Hanya huruf kecil, angka, dan titik. Terlihat oleh anggota
+                                            komunitas.</span>
+                                    </p>
+                                </div>
+                                <!-- Section 3: Minat Belajar Chips Selection -->
+                                <div>
+                                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-2">
+                                        <label class="block font-body-medium text-body-default text-on-surface">
+                                            Pilih Minat Belajar & Riset
+                                        </label>
+                                        <span class="font-caption text-[12px] text-primary-container font-medium"
+                                            id="selectedCountLabel">
+                                            3 Minat Dipilih (Minimal 2)
+                                        </span>
+                                    </div>
+                                    <p class="font-caption text-caption text-secondary mb-space-sm">
+                                        Klik tag yang sesuai dengan fokus studi atau eksplorasi kegiatan UKM yang ingin
+                                        kamu ikuti semester ini.
+                                    </p>
+                                    <!-- Tags Grid / Pill Cluster -->
+                                    <div class="flex flex-wrap gap-2.5 pt-1" id="interestsContainer">
+                                        <!-- Active 1: Game Development -->
+                                        <button
+                                            class="interest-chip active inline-flex items-center gap-1.5 h-9 px-3.5 rounded-full bg-secondary-container text-primary-container font-caption-medium text-caption transition-all"
+                                            data-interest="Game Development" type="button">
+                                            <span
+                                                class="material-symbols-outlined text-[16px] text-primary-container leading-none chip-check">check</span>
+                                            <span>Game Development</span>
+                                        </button>
+                                        <!-- Active 2: Robotika & IoT -->
+                                        <button
+                                            class="interest-chip active inline-flex items-center gap-1.5 h-9 px-3.5 rounded-full bg-secondary-container text-primary-container font-caption-medium text-caption transition-all"
+                                            data-interest="Robotika & IoT" type="button">
+                                            <span
+                                                class="material-symbols-outlined text-[16px] text-primary-container leading-none chip-check">check</span>
+                                            <span>Robotika & IoT</span>
+                                        </button>
+                                        <!-- Active 3: UI/UX Design -->
+                                        <button
+                                            class="interest-chip active inline-flex items-center gap-1.5 h-9 px-3.5 rounded-full bg-secondary-container text-primary-container font-caption-medium text-caption transition-all"
+                                            data-interest="UI/UX Design" type="button">
+                                            <span
+                                                class="material-symbols-outlined text-[16px] text-primary-container leading-none chip-check">check</span>
+                                            <span>UI/UX Design</span>
+                                        </button>
+                                        <!-- Inactive Options -->
+                                        <button
+                                            class="interest-chip inline-flex items-center gap-1.5 h-9 px-3.5 rounded-full bg-surface-container-lowest text-on-secondary-container font-caption-medium text-caption hover:bg-surface-container-low transition-all"
+                                            data-interest="Kecerdasan Buatan (AI)" type="button">
+                                            <span
+                                                class="material-symbols-outlined text-[16px] text-primary-container leading-none chip-check hidden">check</span>
+                                            <span>Kecerdasan Buatan (AI)</span>
+                                        </button>
+                                        <button
+                                            class="interest-chip inline-flex items-center gap-1.5 h-9 px-3.5 rounded-full bg-surface-container-lowest text-on-secondary-container font-caption-medium text-caption hover:bg-surface-container-low transition-all"
+                                            data-interest="Web Development" type="button">
+                                            <span
+                                                class="material-symbols-outlined text-[16px] text-primary-container leading-none chip-check hidden">check</span>
+                                            <span>Web Development</span>
+                                        </button>
+                                        <button
+                                            class="interest-chip inline-flex items-center gap-1.5 h-9 px-3.5 rounded-full bg-surface-container-lowest text-on-secondary-container font-caption-medium text-caption hover:bg-surface-container-low transition-all"
+                                            data-interest="Mobile App Dev" type="button">
+                                            <span
+                                                class="material-symbols-outlined text-[16px] text-primary-container leading-none chip-check hidden">check</span>
+                                            <span>Mobile App Dev</span>
+                                        </button>
+                                        <button
+                                            class="interest-chip inline-flex items-center gap-1.5 h-9 px-3.5 rounded-full bg-surface-container-lowest text-on-secondary-container font-caption-medium text-caption hover:bg-surface-container-low transition-all"
+                                            data-interest="Fotografi & Sinematografi" type="button">
+                                            <span
+                                                class="material-symbols-outlined text-[16px] text-primary-container leading-none chip-check hidden">check</span>
+                                            <span>Fotografi & Sinematografi</span>
+                                        </button>
+                                        <button
+                                            class="interest-chip inline-flex items-center gap-1.5 h-9 px-3.5 rounded-full bg-surface-container-lowest text-on-secondary-container font-caption-medium text-caption hover:bg-surface-container-low transition-all"
+                                            data-interest="Aeromodelling" type="button">
+                                            <span
+                                                class="material-symbols-outlined text-[16px] text-primary-container leading-none chip-check hidden">check</span>
+                                            <span>Aeromodelling</span>
+                                        </button>
+                                        <button
+                                            class="interest-chip inline-flex items-center gap-1.5 h-9 px-3.5 rounded-full bg-surface-container-lowest text-on-secondary-container font-caption-medium text-caption hover:bg-surface-container-low transition-all"
+                                            data-interest="Sains Data" type="button">
+                                            <span
+                                                class="material-symbols-outlined text-[16px] text-primary-container leading-none chip-check hidden">check</span>
+                                            <span>Sains Data</span>
+                                        </button>
+                                        <button
+                                            class="interest-chip inline-flex items-center gap-1.5 h-9 px-3.5 rounded-full bg-surface-container-lowest text-on-secondary-container font-caption-medium text-caption hover:bg-surface-container-low transition-all"
+                                            data-interest="Cyber Security" type="button">
+                                            <span
+                                                class="material-symbols-outlined text-[16px] text-primary-container leading-none chip-check hidden">check</span>
+                                            <span>Cyber Security</span>
+                                        </button>
+                                        <button
+                                            class="interest-chip inline-flex items-center gap-1.5 h-9 px-3.5 rounded-full bg-surface-container-lowest text-on-secondary-container font-caption-medium text-caption hover:bg-surface-container-low transition-all"
+                                            data-interest="Game Design" type="button">
+                                            <span
+                                                class="material-symbols-outlined text-[16px] text-primary-container leading-none chip-check hidden">check</span>
+                                            <span>Game Design</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- Action Navigation Buttons -->
+                                <div class="pt-space-md flex items-center justify-between gap-space-md">
+                                    <a class="inline-flex items-center justify-center h-12 px-6 rounded-lg bg-surface-container-low text-secondary hover:text-on-surface hover:bg-surface-container font-label-btn text-label-btn transition-colors"
+                                        data-path="eksplorasi-komunitas" href="#">
+                                        <span class="material-symbols-outlined text-[18px] mr-1.5">arrow_back</span>
+                                        Kembali
+                                    </a>
+                                    <button
+                                        class="inline-flex items-center justify-center h-12 px-8 rounded-lg bg-primary-container text-on-primary font-label-btn text-label-btn hover:bg-primary transition-all shadow-sm"
+                                        id="btnContinue" type="button">
+                                        <span>Lanjutkan</span>
+                                        <span
+                                            class="material-symbols-outlined text-[18px] ml-2 font-normal">arrow_forward</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- Stepper Footer Sequential Info -->
+                <div class="mt-space-xl grid grid-cols-1 md:grid-cols-3 gap-space-lg pt-space-lg">
+                    <div class="flex items-start gap-space-sm">
+                        <span class="font-headline-section text-[24px] text-secondary font-bold leading-none">01</span>
+                        <div>
+                            <h2 class="font-title-card text-[15px] text-on-surface font-semibold">Verifikasi Email
+                                Kampus</h2>
+                            <p class="font-caption text-caption text-secondary">Terkonfirmasi dengan domain sso.ac.id
+                                mahasiswa.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-space-sm">
+                        <span
+                            class="font-headline-section text-[24px] text-primary-container font-bold leading-none">02</span>
+                        <div>
+                            <h2 class="font-title-card text-[15px] text-primary-container font-semibold">Lengkapi Profil
+                                Belajar</h2>
+                            <p class="font-caption text-caption text-secondary">Personalisasi topik riset & pencocokan
+                                UKM rekan sebidang.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-space-sm">
+                        <span
+                            class="font-headline-section text-[24px] text-outline-variant font-bold leading-none">03</span>
+                        <div>
+                            <h2 class="font-title-card text-[15px] text-secondary font-semibold">Gabung Komunitas
+                                Perdana</h2>
+                            <p class="font-caption text-caption text-secondary">Masuk ke ruang forum dan dapatkan alur
+                                belajar mandiri.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+                (function () {
+                    const usernameInput = document.getElementById('usernameInput');
+                    const previewUsername = document.getElementById('previewUsername');
+                    const previewDisplayName = document.getElementById('previewDisplayName');
+                    const previewChipsContainer = document.getElementById('previewChipsContainer');
+                    const selectedCountLabel = document.getElementById('selectedCountLabel');
+                    const chips = document.querySelectorAll('.interest-chip');
+                    const avatarInput = document.getElementById('avatarFileInput');
+                    const formAvatarImg = document.getElementById('formAvatarImg');
+                    const previewAvatarImg = document.getElementById('previewAvatarImg');
+                    const btnUseDefault = document.getElementById('btnUseDefaultAvatar');
+                    const btnContinue = document.getElementById('btnContinue');
+
+                    // Live Username Input Sync
+                    if (usernameInput && previewUsername) {
+                        usernameInput.addEventListener('input', function (e) {
+                            let val = e.target.value.toLowerCase().replace(/[^a-z0-9._]/g, '');
+                            e.target.value = val;
+                            previewUsername.textContent = '@' + (val || 'username');
+                            if (val.length > 2) {
+                                const formatted = val.split(/[._]/).map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+                                if (previewDisplayName) previewDisplayName.textContent = formatted || 'Alex Pratama';
+                            }
+                        });
+                    }
+
+                    // Interactive Interest Chips
+                    function updateSelectedChipsUI() {
+                        const activeChips = Array.from(chips).filter(c => c.classList.contains('active'));
+                        const count = activeChips.length;
+
+                        if (selectedCountLabel) {
+                            selectedCountLabel.textContent = count + ' Minat Dipilih (Minimal 2)';
+                        }
+
+                        if (previewChipsContainer) {
+                            previewChipsContainer.innerHTML = '';
+                            if (activeChips.length === 0) {
+                                previewChipsContainer.innerHTML = '<span class="text-[12px] font-caption text-secondary italic">Belum ada minat yang dipilih</span>';
+                            } else {
+                                activeChips.forEach(chip => {
+                                    const name = chip.getAttribute('data-interest');
+                                    const span = document.createElement('span');
+                                    span.className = 'px-2.5 py-0.5 bg-secondary-container text-primary-container rounded-full text-[12px] font-caption-medium';
+                                    span.textContent = name;
+                                    previewChipsContainer.appendChild(span);
+                                });
+                            }
+                        }
+                    }
+
+                    chips.forEach(chip => {
+                        chip.addEventListener('click', function () {
+                            const isCurrentlyActive = this.classList.contains('active');
+                            const checkIcon = this.querySelector('.chip-check');
+
+                            if (isCurrentlyActive) {
+                                this.classList.remove('active', 'bg-secondary-container', 'text-primary-container');
+                                this.classList.add('bg-surface-container-lowest', 'text-on-secondary-container');
+                                if (checkIcon) checkIcon.classList.add('hidden');
+                            } else {
+                                this.classList.add('active', 'bg-secondary-container', 'text-primary-container');
+                                this.classList.remove('bg-surface-container-lowest', 'text-on-secondary-container');
+                                if (checkIcon) checkIcon.classList.remove('hidden');
+                            }
+                            updateSelectedChipsUI();
+                        });
+                    });
+
+                    // File Input preview handling
+                    if (avatarInput) {
+                        avatarInput.addEventListener('change', function (e) {
+                            const file = e.target.files[0];
+                            if (file) {
+                                const reader = new FileReader();
+                                reader.onload = function (evt) {
+                                    if (formAvatarImg) formAvatarImg.src = evt.target.result;
+                                    if (previewAvatarImg) previewAvatarImg.src = evt.target.result;
+                                };
+                                reader.readAsDataURL(file);
+                            }
+                        });
+                    }
+
+                    // Default Avatar Button
+                    if (btnUseDefault) {
+                        btnUseDefault.addEventListener('click', function () {
+                            const avatarWrapper = document.getElementById('previewAvatarWrapper');
+                            if (avatarWrapper) {
+                                avatarWrapper.innerHTML = '<span class="material-symbols-outlined text-primary-container text-[36px]">account_circle</span>';
+                            }
+                            const formAvatarWrapper = formAvatarImg?.parentElement;
+                            if (formAvatarWrapper) {
+                                formAvatarWrapper.innerHTML = '<span class="material-symbols-outlined text-primary-container text-[42px]">account_circle</span>';
+                            }
+                        });
+                    }
+
+                    // Continue action micro-feedback
+                    if (btnContinue) {
+                        btnContinue.addEventListener('click', function () {
+                            const activeChips = Array.from(chips).filter(c => c.classList.contains('active'));
+                            if (activeChips.length < 2) {
+                                alert('Silakan pilih minimal 2 minat belajar untuk mempersonalisasi rekomendasi UKM Anda.');
+                                return;
+                            }
+                            this.innerHTML = '<span class="material-symbols-outlined animate-spin text-[18px] mr-2">progress_activity</span> Menyimpan...';
+                            setTimeout(() => {
+                                this.innerHTML = '<span class="material-symbols-outlined text-[18px] mr-2">check</span> Berhasil Disimpan';
+                                this.classList.replace('bg-primary-container', 'bg-primary');
+                            }, 600);
+                        });
+                    }
+
+                    // Initial mirror run
+                    updateSelectedChipsUI();
+                })();
+        </script>
+    </main>
+    <footer class="w-full bg-surface-container-lowest border-t border-[#DDE2EC] py-space-xl mt-auto">
+        <div
+            class="max-w-[1200px] mx-auto px-margin md:px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-space-md">
+            <div class="flex items-center gap-space-xs"><span
+                    class="font-title-card text-title-card text-on-surface">ComtoLearn</span><span
+                    class="font-caption text-caption text-secondary ml-space-xs">© 2025 Platform Komunitas & Belajar
+                    Mandiri Mahasiswa</span></div>
+            <div class="flex items-center gap-space-lg"><a
+                    class="font-caption text-caption text-secondary hover:text-primary transition-colors"
+                    href="#">Panduan Akademik</a><a
+                    class="font-caption text-caption text-secondary hover:text-primary transition-colors"
+                    href="#">Kebijakan Privasi</a><a
+                    class="font-caption text-caption text-secondary hover:text-primary transition-colors" href="#">Pusat
+                    Bantuan</a></div>
+        </div>
+    </footer>
+</body>
+
+</html>
