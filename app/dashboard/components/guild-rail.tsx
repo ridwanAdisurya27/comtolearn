@@ -1,16 +1,23 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
-  Compass,
   GraduationCap,
+  LogOut,
   Plus,
   User,
 } from "lucide-react";
+import { authClient } from "@/lib/auth-client";
 
 export function GuildRail() {
   const pathname = usePathname();
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    await authClient.signOut();
+    router.push("/sign-in");
+  };
 
   return (
     <aside
@@ -51,13 +58,14 @@ export function GuildRail() {
         </div>
       </div>
 
-      {/* User Profile */}
+      {/* Logout Button */}
       <div className="relative group flex items-center justify-center w-full">
         <button
-          aria-label="Jelajahi Guild Kampus"
-          className="w-12 h-12 rounded-3xl group-hover:rounded-2xl bg-white hover:bg-primary text-secondary hover:text-white shadow-sm flex items-center justify-center transition-all duration-200"
+          aria-label="Keluar"
+          onClick={handleLogout}
+          className="w-12 h-12 rounded-3xl group-hover:rounded-2xl bg-white hover:bg-red-500 text-secondary hover:text-white shadow-sm flex items-center justify-center transition-all duration-200"
         >
-          <User className="w-5 h-5" />
+          <LogOut className="w-5 h-5" />
         </button>
       </div>
     </aside>

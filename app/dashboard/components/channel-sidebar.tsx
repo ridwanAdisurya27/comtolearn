@@ -48,7 +48,7 @@ export function ChannelSidebar() {
           <div>
             <div className="space-y-0.5">
               <Link
-                href="/dashboard"
+                href="/dashboard/chat"
                 className={`w-full flex items-center px-2 py-1.5 rounded text-xs transition-colors ${
                   !isPathView
                     ? "bg-accent-soft text-primary-container font-semibold border-l-2 border-primary-container"

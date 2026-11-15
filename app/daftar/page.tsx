@@ -3,9 +3,42 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Eye, EyeOff, GraphStar } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
+import { authClient } from "@/lib/auth-client";
+import { checkPassword } from "@/lib/password-policy";
+
 
 export default function Daftar() {
   const [eye, setEye] = useState(true)
+  const [password, setPassword] = useState("")
+  const [email, setEmail] = useState("")
+  const [name, setName ] = useState("")
+  const [message, setMessage] = useState("")
+  const [isLoading, setIsLoading] = useState(false);
+  const problems = checkPassword(password, { email, name });
+  const handleRegister = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setMessage("");
+    try {
+      const { error } = await authClient.signUp.email({
+        name,
+        email,
+        password,
+        callbackURL: "/dashboard",
+      });
+      if (error) {
+        setMessage(error.message);
+        setIsLoading(false);
+        return;
+      }
+      await authClient.signIn.email({ email, password });
+      window.location.href = "/dashboard";
+    } catch (err: any) {
+      setMessage(err.message || "Terjadi kesalahan");
+    } finally {
+      setIsLoading(false);
+    }
+  };
   return (
     <>
       <div className="h-screen bg-background flex flex-col overflow-hidden">
@@ -126,7 +159,7 @@ export default function Daftar() {
                 <div className="border-t border-line w-full mb-4" />
 
                 {/* Standard Credentials Form */}
-                <form action="#" className="space-y-3.5" method="POST">
+                <form action="#" className="space-y-3.5" method="POST" onSubmit={handleRegister}>
                   {/* Username */}
                   <div>
                     <label
@@ -142,6 +175,7 @@ export default function Daftar() {
                       placeholder="Username"
                       required
                       type="text"
+                      onChange={(e) => setName(e.target.value)}
                     />
                   </div>
 
@@ -160,6 +194,7 @@ export default function Daftar() {
                       placeholder="nama@mahasiswa.kampus.ac.id"
                       required
                       type="email"
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
 
@@ -181,31 +216,44 @@ export default function Daftar() {
                         name="password"
                         placeholder="••••••••••••"
                         required
-                        type="password"
+                        type={eye ? "password" : "text"}
+                        onChange={(e) => setPassword(e.target.value)}
                       />
-                      <button
-                        aria-label="Tampilkan atau sembunyikan kata sandi"
-                        className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600 focus:outline-none"
-                        id="toggle-password-visibility"
-                        type="button">
-                          <Button variant={"default"} size={"icon-sm"} className={"bg-transparent hover:bg-transparent"} onClick={() => setEye(!eye)}> {eye ? <Eye className="text-black"/> : <EyeOff className="text-black" />} </Button>
-                      </button>
+                      <Button variant="ghost" size="icon-sm" type="button"
+                    aria-label="Tampilkan atau sembunyikan kata sandi"
+                    className="absolute inset-y-0 right-0 pr-3 flex items-center bg-transparent hover:bg-transparent shadow-none"
+                    onClick={()=> setEye(!eye)}
+                    >
+                    {eye ?
+                    <Eye className="text-black" /> :
+                    <EyeOff className="text-black" />}
+                  </Button>
                     </div>
                   </div>
 
                   {/* Primary Submit CTA Button */}
+                  {password.length > 0 && problems.length > 0 && (
+                    <ul className="text-sm text-muted-foreground">
+                      {problems.map((p) => (
+                        <li key={p}>{p}</li>
+                      ))}
+                    </ul>
+                  )}
                   <div className="pt-1">
-                    <Link href={"/dashboard"}>
                       <Button
                         className="w-full rounded-xl bg-primary hover:bg-primary-hover active:scale-[0.99] text-white font-medium text-xs transition duration-150 transform focus:outline-none focus:ring-2 focus:ring-primary/30 flex items-center justify-center gap-2 shadow-sm shadow-primary/20 hover:text-white"
                         variant={"outline"}
+                        disabled={isLoading}
+                        type="submit"
                       >
-                        Masuk Sekarang
+                        {isLoading ? "Mendaftarkan..." : "Daftar Sekarang"}
                         <ArrowRight />
                       </Button>
-                    </Link>
                   </div>
                 </form>
+                {message && (
+                  <p className="text-xs text-red-500 text-center mt-2">{message}</p>
+                )}
 
                 {/* Alternative Link */}
                 <p className="mt-4 text-center text-xs text-secondary">
