@@ -1,6 +1,6 @@
 "use client"
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Eye, EyeOff, GraphStar } from "lucide-react";
+import { ArrowRight, Eye, EyeOff, GraphStar, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -185,17 +185,19 @@ export default function Daftar() {
                       />
                       <button
                         aria-label="Tampilkan atau sembunyikan kata sandi"
-                        className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600 focus:outline-none"
+                        className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-600 focus:outline-none cursor-pointer"
                         id="toggle-password-visibility"
-                        type="button">
-                          <Button variant={"default"} size={"icon-sm"} className={"bg-transparent hover:bg-transparent"} onClick={() => setEye(!eye)}> {eye ? <Eye className="text-black"/> : <EyeOff className="text-black" />} </Button>
+                        onClick={() => setEye(!eye)}
+                        type="button"
+                      >
+                        {eye ? <Eye className="w-4 h-4 text-black" /> : <EyeOff className="w-4 h-4 text-black" />}
                       </button>
                     </div>
                   </div>
 
                   {/* Primary Submit CTA Button */}
                   <div className="pt-1">
-                    <Link href={"/dashboard"}>
+                    <Link href={"/new-user"}>
                       <Button
                         className="w-full rounded-xl bg-primary hover:bg-primary-hover active:scale-[0.99] text-white font-medium text-xs transition duration-150 transform focus:outline-none focus:ring-2 focus:ring-primary/30 flex items-center justify-center gap-2 shadow-sm shadow-primary/20 hover:text-white"
                         variant={"outline"}
@@ -210,29 +212,17 @@ export default function Daftar() {
                 {/* Alternative Link */}
                 <p className="mt-4 text-center text-xs text-secondary">
                   Sudah Daftar?
-                  <a
-                    className="font-semibold text-primary hover:underline ml-1"
-                    href="#register"
+                  <Link
+                    className="font-semibold text-primary hover:underline ml-1 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
+                    href="/sign-in"
                   >
                     Login
-                  </a>
+                  </Link>
                 </p>
 
                 {/* Institutional Security Trust Badge */}
                 <div className="mt-4 pt-3 border-t border-line flex items-center justify-center gap-1.5 text-[11px] text-secondary">
-                  <svg
-                    className="w-3.5 h-3.5 text-accent-mint shrink-0"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                  <ShieldCheck className="w-3.5 h-3.5 text-accent-mint shrink-0" />
                   <span>Autentikasi aman terintegrasi domain institusi kampus.</span>
                 </div>
               </div>

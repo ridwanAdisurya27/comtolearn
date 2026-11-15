@@ -6,7 +6,6 @@ import {
   Compass,
   GraduationCap,
   Plus,
-  User,
 } from "lucide-react";
 
 export function GuildRail() {
@@ -32,13 +31,20 @@ export function GuildRail() {
         <div className="w-8 h-[2px] bg-line rounded" />
         {/* UKM Robotika & IoT (Active Server) */}
         <div className="relative group flex items-center justify-center w-full">
-          <div className="absolute left-0 w-1 bg-on-surface rounded-r transition-all duration-200 h-0 group-hover:h-5" />
-          <button
+          <div
+            className={`absolute left-0 w-1 bg-on-surface rounded-r transition-all duration-200 ${
+              pathname === "/dashboard/chat" || pathname === "/dashboard" || pathname === "/dashboard/path"
+                ? "h-8"
+                : "h-0 group-hover:h-5"
+            }`}
+          />
+          <Link
+            href="/dashboard/chat"
             aria-label="UKM Robotika & IoT"
-            className="w-12 h-12 rounded-2xl bg-primary-container text-white flex items-center justify-center font-bold text-sm shadow-md ring-2 ring-primary-container/30"
+            className="w-12 h-12 rounded-2xl bg-primary-container text-white flex items-center justify-center font-bold text-sm shadow-md ring-2 ring-primary-container/30 cursor-pointer"
           >
             <span className="material-symbols-outlined text-[24px]">smart_toy</span>
-          </button>
+          </Link>
         </div>
         {/* Add Guild Button */}
         <div className="relative group flex items-center justify-center w-full pt-1">
@@ -51,14 +57,24 @@ export function GuildRail() {
         </div>
       </div>
 
-      {/* User Profile */}
+      {/* Jelajahi Guild Kampus (Search & Discovery) */}
       <div className="relative group flex items-center justify-center w-full">
-        <button
+        <div
+          className={`absolute left-0 w-1 bg-on-surface rounded-r transition-all duration-200 ${
+            pathname === "/dashboard/search" ? "h-8" : "h-0 group-hover:h-5"
+          }`}
+        />
+        <Link
           aria-label="Jelajahi Guild Kampus"
-          className="w-12 h-12 rounded-3xl group-hover:rounded-2xl bg-white hover:bg-primary text-secondary hover:text-white shadow-sm flex items-center justify-center transition-all duration-200"
+          href="/dashboard/search"
+          className={`w-12 h-12 rounded-3xl group-hover:rounded-2xl shadow-sm flex items-center justify-center transition-all duration-200 cursor-pointer ${
+            pathname === "/dashboard/search"
+              ? "bg-primary-container text-white rounded-2xl"
+              : "bg-white hover:bg-primary text-secondary hover:text-white"
+          }`}
         >
-          <User className="w-5 h-5" />
-        </button>
+          <Compass className="w-5 h-5" />
+        </Link>
       </div>
     </aside>
   );
