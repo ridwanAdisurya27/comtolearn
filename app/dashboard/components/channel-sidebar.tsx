@@ -3,18 +3,16 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  ChevronDown,
-  Hash,
   Map,
   MessageCircle,
-  Mic,
   Settings,
-  Volume2,
-  VolumeX,
 } from "lucide-react";
 
 export function ChannelSidebar() {
   const pathname = usePathname();
+  if (pathname === "/dashboard/search") return null;
+
+  const isChatView = pathname === "/dashboard/chat" || pathname === "/dashboard";
   const isPathView = pathname === "/dashboard/path";
 
   return (
@@ -50,7 +48,7 @@ export function ChannelSidebar() {
               <Link
                 href="/dashboard/chat"
                 className={`w-full flex items-center px-2 py-1.5 rounded text-xs transition-colors ${
-                  !isPathView
+                  isChatView
                     ? "bg-accent-soft text-primary-container font-semibold border-l-2 border-primary-container"
                     : "text-secondary hover:bg-surface-dim hover:text-on-surface"
                 }`}

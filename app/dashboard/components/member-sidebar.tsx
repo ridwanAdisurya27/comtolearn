@@ -1,8 +1,11 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { Search } from "lucide-react";
 
 export function MemberSidebar() {
+  const pathname = usePathname();
+  if (pathname === "/dashboard/search") return null;
   return (
     <aside
       aria-label="Daftar Anggota Aktif"

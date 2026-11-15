@@ -61,7 +61,7 @@ export default function LearningPathPage() {
       <header className="h-12 border-b border-line px-4 flex items-center justify-between shrink-0 shadow-xs bg-surface">
         <div className="flex items-center space-x-3 truncate">
           <Link
-            href="/dashboard"
+            href="/dashboard/chat"
             className="text-secondary hover:text-on-surface p-1 rounded-md hover:bg-surface-dim transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -77,7 +77,7 @@ export default function LearningPathPage() {
 
         <div className="flex items-center space-x-3">
           <Link
-            href="/dashboard"
+            href="/dashboard/chat"
             className="text-xs text-primary-container hover:underline font-semibold flex items-center gap-1"
           >
             <span>Kembali ke Chat</span>
