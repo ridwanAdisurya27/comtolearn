@@ -1,6 +1,10 @@
 "use client";
-
+import Quiz from "./components/quiz_user";
 import Link from "next/link";
+import Text from "./components/text_user";
+import Quiz_editor from "./components/quiz_editor";
+import Text_editor from "./components/text_editor";
+import Link_editor from "./components/link_editor"
 import {
   ArrowLeft,
   CheckCircle2,
@@ -125,13 +129,12 @@ export default function LearningPathPage() {
             {modules.map((m) => (
               <div
                 key={m.id}
-                className={`p-4 rounded-xl border transition-all ${
-                  m.status === "active"
+                className={`p-4 rounded-xl border transition-all ${m.status === "active"
                     ? "bg-accent-soft/40 border-primary-container/40 shadow-xs ring-1 ring-primary-container/20"
                     : m.status === "completed"
-                    ? "bg-surface border-line"
-                    : "bg-surface-dim/60 border-line opacity-75"
-                }`}
+                      ? "bg-surface border-line"
+                      : "bg-surface-dim/60 border-line opacity-75"
+                  }`}
               >
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex items-start gap-3">
